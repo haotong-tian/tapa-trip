@@ -299,6 +299,128 @@
     letter-spacing: 0.05em;
   }
 
+  /* ── Map ────────────────────────────────────────── */
+  .map-figure { margin: 0; text-align: center; }
+  .tahoe-map {
+    width: 100%; max-width: 540px;
+    height: auto; display: block; margin: 0 auto;
+  }
+  .tahoe-map .lake {
+    fill: #eef2ed;
+    stroke: #8a7a62;
+    stroke-width: 1.4;
+  }
+  .tahoe-map .lake-label {
+    font-family: var(--font-display);
+    font-style: italic; font-size: 22px;
+    fill: #8a7a62; opacity: 0.55;
+    text-anchor: middle;
+    letter-spacing: 0.08em;
+  }
+  .tahoe-map .route {
+    fill: none;
+    stroke-width: 4.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .tahoe-map .route.sun { stroke: var(--wine); }
+  .tahoe-map .route.mon { stroke: var(--olive); }
+  .tahoe-map .route-arrow.mon { fill: var(--olive); }
+  .tahoe-map .pin {
+    fill: #2a1410;
+    stroke: #faf3e4;
+    stroke-width: 2;
+  }
+  .tahoe-map .pin-label {
+    font-family: var(--font-display);
+    font-style: italic; font-weight: 600;
+    font-size: 13px; fill: var(--ink);
+  }
+  .tahoe-map .pin-sub {
+    font-family: var(--font-body);
+    font-size: 11px; fill: var(--muted);
+    font-style: italic;
+  }
+  .tahoe-map .legend-swatch {
+    stroke-width: 4.5; stroke-linecap: round;
+  }
+  .tahoe-map .legend-swatch.sun { stroke: var(--wine); }
+  .tahoe-map .legend-swatch.mon { stroke: var(--olive); }
+  .tahoe-map .legend-label {
+    font-family: var(--font-display);
+    font-style: italic; font-size: 13px;
+    fill: var(--ink);
+  }
+  .tahoe-map .compass text,
+  .tahoe-map .compass-arrow {
+    fill: var(--muted);
+  }
+  .tahoe-map .compass-line {
+    stroke: var(--muted); stroke-width: 1.2;
+  }
+  .map-caption {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+
+  /* ── Reservations ───────────────────────────────── */
+  .res-intro {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.95rem;
+    margin: -0.5rem 0 1.5rem;
+  }
+  .res-group { margin-bottom: 2rem; }
+  .res-group h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--wine);
+    text-align: center;
+    margin: 0 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .res-list { list-style: none; padding: 0; margin: 0; }
+  .res-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .res-list li:last-child { border-bottom: none; }
+  .res-name {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+  }
+  .res-link {
+    color: var(--wine);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .res-link:hover { color: var(--wine-soft); }
+  .res-tbd {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+  }
+
   /* ── Mobile ─────────────────────────────────────── */
   @media (max-width: 560px) {
     body { padding: 2rem 1rem 3rem; font-size: 17px; }
@@ -383,35 +505,131 @@
 
 <div class="ornament">❦</div>
 
-<section id="todo">
-  <h2>To-do</h2>
-  <p class="todo-intro">Edit this file and flip <code>checked</code> on the input when done. Git is the source of truth.</p>
+<section id="reservations">
+  <h2>Reservations</h2>
+  <p class="res-intro">Candidate links — commit the chosen option once decided.</p>
 
-  <div class="todo-group">
-    <h3>Bookings &amp; Reservations</h3>
-    <ul class="todo-list">
-      <li><input type="checkbox"><span class="task">Airbnb — North Shore (Incline / Kings Beach / Tahoe Vista)<span class="meta">Sat + Sun nights · needs full kitchen + firepit a plus · sleeps our crew</span></span></li>
-      <li><input type="checkbox"><span class="task">Winery 1 reservation (Sat ~11am)</span></li>
-      <li><input type="checkbox"><span class="task">Winery 2 reservation (Sat ~2:30pm)</span></li>
-      <li><input type="checkbox"><span class="task">Napa dinner reservation (Sat ~5:30pm)<span class="meta">early slot — we need to be on the road by 7pm</span></span></li>
-      <li><input type="checkbox"><span class="task">Sunday lunch reservation (North Shore, ~2pm)</span></li>
-      <li><input type="checkbox"><span class="task">Kayak rental at Sand Harbor (Sun 3:30pm)</span></li>
-      <li><input type="checkbox"><span class="task">Tahoe City lunch reservation (Mon ~1pm)</span></li>
-      <li><input type="checkbox"><span class="task">Fremont / East Bay dinner reservation (Mon ~7:30pm)</span></li>
+  <div class="res-group">
+    <h3>Lodging</h3>
+    <ul class="res-list">
+      <li>
+        <span class="res-name">Airbnb — North Shore shortlist</span>
+        <a class="res-link" href="https://www.airbnb.com/wishlists/invite/44597bf5-fb79-4982-9936-c3cbdb010f05?s=67&amp;unique_share_id=8495d058-c3de-4003-9470-93463c93c5e2" target="_blank" rel="noopener">airbnb.com wishlist&nbsp;→</a>
+      </li>
     </ul>
   </div>
 
-  <div class="todo-group">
-    <h3>Pack</h3>
-    <ul class="todo-list">
-      <li><input type="checkbox"><span class="task">Hiking shoes + daypack</span></li>
-      <li><input type="checkbox"><span class="task">Warm layers (Tahoe evenings are cold in May)</span></li>
-      <li><input type="checkbox"><span class="task">Sunscreen + hat + sunglasses</span></li>
-      <li><input type="checkbox"><span class="task">Cookware (anything the Airbnb likely lacks)</span></li>
-      <li><input type="checkbox"><span class="task">Spices + cooking oil for Sun dinner</span></li>
-      <li><input type="checkbox"><span class="task">Cards / games / Bluetooth speaker</span></li>
+  <div class="res-group">
+    <h3>Saturday — Napa</h3>
+    <ul class="res-list">
+      <li><span class="res-name">Winery 1 (~11am)</span><span class="res-tbd">TBD</span></li>
+      <li><span class="res-name">Winery 2 (~2:30pm)</span><span class="res-tbd">TBD</span></li>
+      <li><span class="res-name">Dinner in Napa (~5:30pm)</span><span class="res-tbd">TBD</span></li>
     </ul>
   </div>
+
+  <div class="res-group">
+    <h3>Sunday — North Tahoe</h3>
+    <ul class="res-list">
+      <li>
+        <span class="res-name">Kayak at Sand Harbor (~3:30pm)</span>
+        <a class="res-link" href="https://clearlytahoerentals.com/" target="_blank" rel="noopener">clearlytahoerentals.com&nbsp;→</a>
+      </li>
+      <li><span class="res-name">Lunch — North Shore (~2pm)</span><span class="res-tbd">TBD</span></li>
+    </ul>
+  </div>
+
+  <div class="res-group">
+    <h3>Monday — drive home</h3>
+    <ul class="res-list">
+      <li><span class="res-name">Tahoe City lunch (~1pm, optional)</span><span class="res-tbd">TBD</span></li>
+      <li><span class="res-name">Fremont / East Bay dinner (~7:30pm)</span><span class="res-tbd">TBD</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="ornament">❦</div>
+
+<section id="map">
+  <h2>Map</h2>
+  <figure class="map-figure">
+    <svg class="tahoe-map" viewBox="0 0 540 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-title">
+      <title id="map-title">Lake Tahoe — Sunday and Monday route coverage</title>
+
+      <path class="lake" d="M 275 55
+        C 335 55, 395 80, 410 155
+        C 420 240, 410 335, 395 425
+        C 380 510, 345 590, 290 625
+        C 245 645, 195 625, 165 575
+        C 140 520, 135 430, 140 340
+        C 148 240, 160 155, 195 100
+        C 220 70, 250 55, 275 55 Z"/>
+
+      <text class="lake-label" x="272" y="380">Lake Tahoe</text>
+
+      <path class="route sun" d="M 395 110
+        C 402 145, 405 175, 407 200
+        C 410 225, 411 245, 412 252"/>
+
+      <path class="route mon" d="M 395 110
+        C 330 92, 260 88, 215 108
+        C 185 128, 172 155, 170 200
+        C 158 280, 150 370, 152 450
+        C 156 480, 160 498, 168 520
+        L 180 555"/>
+      <polygon class="route-arrow mon" points="180,560 170,548 192,548"/>
+
+      <g class="pin-group">
+        <circle class="pin" cx="395" cy="110" r="7"/>
+        <text class="pin-label" x="413" y="105">Incline Village</text>
+        <text class="pin-sub"   x="413" y="120">Airbnb</text>
+
+        <circle class="pin" cx="407" cy="200" r="6"/>
+        <text class="pin-label" x="423" y="196">Sand Harbor</text>
+        <text class="pin-sub"   x="423" y="211">kayak · Sun</text>
+
+        <circle class="pin" cx="412" cy="252" r="6"/>
+        <text class="pin-label" x="428" y="248">Secret Cove</text>
+        <text class="pin-sub"   x="428" y="263">hike · Sun</text>
+
+        <circle class="pin" cx="170" cy="150" r="6"/>
+        <text class="pin-label" x="152" y="146" text-anchor="end">Tahoe City</text>
+        <text class="pin-sub"   x="152" y="161" text-anchor="end">lunch · Mon</text>
+
+        <circle class="pin" cx="158" cy="495" r="6"/>
+        <text class="pin-label" x="140" y="491" text-anchor="end">Emerald Bay</text>
+        <text class="pin-sub"   x="140" y="506" text-anchor="end">scenic · Mon</text>
+      </g>
+
+      <g class="legend-group" transform="translate(50, 680)">
+        <line class="legend-swatch sun" x1="0" y1="0" x2="28" y2="0"/>
+        <text class="legend-label" x="38" y="5">Sunday — east shore</text>
+        <line class="legend-swatch mon" x1="225" y1="0" x2="253" y2="0"/>
+        <text class="legend-label" x="263" y="5">Monday — west shore drive</text>
+      </g>
+
+      <g class="compass" transform="translate(490, 100)">
+        <line class="compass-line" x1="0" y1="-18" x2="0" y2="12"/>
+        <polygon class="compass-arrow" points="0,-24 -5,-14 5,-14"/>
+        <text x="0" y="28" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12">N</text>
+      </g>
+    </svg>
+    <figcaption class="map-caption">Route coverage — Sunday east shore · Monday west shore</figcaption>
+  </figure>
+</section>
+
+<div class="ornament">❦</div>
+
+<section id="packing">
+  <h2>Packing</h2>
+  <ul class="todo-list">
+    <li><input type="checkbox"><span class="task">Hiking shoes + daypack</span></li>
+    <li><input type="checkbox"><span class="task">Warm layers (Tahoe evenings are cold in May)</span></li>
+    <li><input type="checkbox"><span class="task">Sunscreen + hat + sunglasses</span></li>
+    <li><input type="checkbox"><span class="task">Cookware (anything the Airbnb likely lacks)</span></li>
+    <li><input type="checkbox"><span class="task">Spices + cooking oil for Sun dinner</span></li>
+    <li><input type="checkbox"><span class="task">Cards / games / Bluetooth speaker</span></li>
+  </ul>
 </section>
 
 <footer>TAPA · a private planner</footer>
