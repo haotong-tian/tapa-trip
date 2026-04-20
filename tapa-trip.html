@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAPA — Memorial Day 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5eddc;
+    --paper: #faf3e4;
+    --paper-deep: #efe4cc;
+    --ink: #2a1410;
+    --muted: #7d6a54;
+    --wine: #5c1626;
+    --wine-soft: #8b2c3f;
+    --olive: #6b7c3a;
+    --barrel: #8a5a2e;
+    --rule: #c8b596;
+    --rule-soft: #e0d4b8;
+
+    --font-display: 'Cormorant Garamond', 'Didot', 'Hoefler Text', Baskerville, Georgia, serif;
+    --font-body: 'Crimson Pro', 'Garamond', 'Hoefler Text', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  @page { margin: 0; size: letter; }
+  @media print {
+    body { padding: 1in 0.75in; }
+    .day, .todo-group { page-break-inside: avoid; }
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 20% 10%, #faf3e4 0%, transparent 50%),
+      radial-gradient(circle at 80% 90%, #efe4cc 0%, transparent 60%),
+      var(--bg);
+    padding: 3rem 1.25rem 5rem;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  /* ── Header ─────────────────────────────────────── */
+  header {
+    text-align: center;
+    padding: 0 0 1.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 3px double var(--wine);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3.2rem, 9vw, 4.6rem);
+    color: var(--wine);
+    margin: 0 0 0.25rem;
+    letter-spacing: 0.18em;
+    line-height: 1;
+  }
+  header .tag {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--barrel);
+    margin-bottom: 0.4rem;
+  }
+  header .sub {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── Section heads ──────────────────────────────── */
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--wine);
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--wine);
+    border-bottom: 1px solid var(--wine);
+    position: relative;
+  }
+  h2::before, h2::after {
+    content: "";
+    position: absolute; left: 0; right: 0;
+    height: 1px; background: var(--wine); opacity: 0.4;
+  }
+  h2::before { top: -4px; }
+  h2::after { bottom: -4px; }
+
+  .ornament {
+    text-align: center;
+    color: var(--wine);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.5em;
+    margin: 2rem 0 0;
+    opacity: 0.6;
+  }
+
+  /* ── At a glance table ──────────────────────────── */
+  .glance {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--paper);
+    font-size: 0.95rem;
+  }
+  .glance th, .glance td {
+    padding: 0.8rem 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .glance thead th {
+    font-family: var(--font-display);
+    font-weight: 600; font-style: italic;
+    color: var(--wine);
+    text-align: left;
+    border-bottom: 2px solid var(--wine);
+    font-size: 1rem;
+  }
+  .glance tbody td:first-child {
+    font-family: var(--font-display);
+    font-variant-caps: all-small-caps;
+    text-transform: lowercase;
+    letter-spacing: 0.15em;
+    color: var(--barrel);
+    font-weight: 600;
+    width: 3.5rem;
+  }
+  .glance tr:last-child td { border-bottom: none; }
+
+  /* ── Day cards ──────────────────────────────────── */
+  .day {
+    background: var(--paper);
+    padding: 1.75rem 1.75rem 1.5rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--wine);
+  }
+  .day::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--rule-soft);
+    pointer-events: none;
+  }
+  .day > * { position: relative; z-index: 1; }
+  .day h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.55rem;
+    color: var(--wine);
+    margin: 0 0 0.15rem;
+  }
+  .day .date {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 0.85rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .schedule { list-style: none; padding: 0; margin: 0; }
+  .schedule li {
+    display: flex;
+    gap: 1.1rem;
+    padding: 0.55rem 0;
+    align-items: baseline;
+  }
+  .schedule li + li { border-top: 1px dashed var(--rule-soft); }
+  .schedule .t {
+    flex: 0 0 5.25rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--barrel);
+    font-size: 0.95rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .schedule .e {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+
+  /* ── To-do (menu style) ─────────────────────────── */
+  .todo-intro {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.95rem;
+    margin: -0.5rem 0 1.5rem;
+  }
+  .todo-intro code {
+    font-family: 'SF Mono', 'Menlo', monospace;
+    font-size: 0.8rem;
+    background: var(--paper-deep);
+    padding: 0.05rem 0.35rem;
+    border-radius: 2px;
+  }
+
+  .todo-group { margin-bottom: 2rem; }
+  .todo-group h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--wine);
+    text-align: center;
+    margin: 0 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .todo-list { list-style: none; padding: 0; margin: 0; }
+  .todo-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .todo-list li:last-child { border-bottom: none; }
+
+  .todo-list input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1rem; height: 1rem;
+    margin-top: 0.35rem;
+    border: 1.5px solid var(--wine);
+    background: var(--paper);
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .todo-list input[type="checkbox"]:checked {
+    background: var(--wine);
+  }
+  .todo-list input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 3px; top: -1px;
+    width: 5px; height: 10px;
+    border: solid var(--paper);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .todo-list .task {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+  }
+  .todo-list .task .meta {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.15rem;
+  }
+  .todo-list input[type="checkbox"]:checked + .task {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--wine-soft);
+    text-decoration-thickness: 1px;
+  }
+
+  /* ── Footer ─────────────────────────────────────── */
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Mobile ─────────────────────────────────────── */
+  @media (max-width: 560px) {
+    body { padding: 2rem 1rem 3rem; font-size: 17px; }
+    h2 { font-size: 1.15rem; letter-spacing: 0.25em; }
+    .day { padding: 1.25rem 1.25rem 1rem; }
+    .day h3 { font-size: 1.35rem; }
+    .schedule li { flex-direction: column; gap: 0.1rem; padding: 0.5rem 0; }
+    .schedule .t { flex: none; }
+    .glance { font-size: 0.85rem; }
+    .glance th, .glance td { padding: 0.5rem 0.55rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>T A P A</h1>
+  <div class="tag">Memorial Day weekend · May 23 – 25, 2026</div>
+  <div class="sub">Bay Area &nbsp;·&nbsp; Napa &nbsp;·&nbsp; North Lake Tahoe</div>
+</header>
+
+<section id="glance">
+  <h2>At a glance</h2>
+  <table class="glance">
+    <thead><tr><th></th><th>Sat 5/23</th><th>Sun 5/24</th><th>Mon 5/25</th></tr></thead>
+    <tbody>
+      <tr><td>AM</td><td>Drive → Napa</td><td>Breakfast → Secret Cove hike</td><td>Slow breakfast at Airbnb</td></tr>
+      <tr><td>Mid</td><td>Winery 1</td><td>Restaurant lunch (North Shore)</td><td>Check out, lunch in Tahoe City</td></tr>
+      <tr><td>PM</td><td>Winery 2</td><td>Kayak + groceries</td><td>Scenic drive to Emerald Bay</td></tr>
+      <tr><td>Eve</td><td>Dinner Napa → drive Tahoe</td><td>Cook at Airbnb + firepit</td><td>US-50 W → dinner Fremont/East Bay</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="ornament">❦</div>
+
+<section id="itinerary">
+  <h2>Itinerary</h2>
+
+  <div class="day">
+    <h3>Napa &amp; the drive up</h3>
+    <div class="date">Day I · Saturday, May 23</div>
+    <ul class="schedule">
+      <li><span class="t">Morning</span><span class="e">Drive Bay Area → Napa (~1.5 hr)</span></li>
+      <li><span class="t">~11:00</span><span class="e">Winery 1</span></li>
+      <li><span class="t">~1:30</span><span class="e">Light lunch / break between wineries</span></li>
+      <li><span class="t">~2:30</span><span class="e">Winery 2</span></li>
+      <li><span class="t">~5:30</span><span class="e">Early dinner in Napa</span></li>
+      <li><span class="t">~7:00</span><span class="e">Drive Napa → North Lake Tahoe (~3.5–4 hr via I-80)</span></li>
+      <li><span class="t">~10:30</span><span class="e">Check in at Airbnb, settle, crash</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <h3>North Lake Tahoe</h3>
+    <div class="date">Day II · Sunday, May 24</div>
+    <ul class="schedule">
+      <li><span class="t">10:00</span><span class="e">Breakfast at Airbnb</span></li>
+      <li><span class="t">11:00</span><span class="e">Head to Secret Cove</span></li>
+      <li><span class="t">11:30–2:00</span><span class="e">Hike to Secret Cove + beach time</span></li>
+      <li><span class="t">2:00</span><span class="e">Sit-down lunch at a North Shore restaurant</span></li>
+      <li><span class="t">3:30–5:30</span><span class="e">Kayak at Sand Harbor</span></li>
+      <li><span class="t">5:30</span><span class="e">Grocery run (Raley's in Incline or Safeway in Kings Beach)</span></li>
+      <li><span class="t">7:00</span><span class="e">Cook dinner at Airbnb + firepit / cards / sunset deck</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <h3>Scenic drive home</h3>
+    <div class="date">Day III · Monday, May 25</div>
+    <ul class="schedule">
+      <li><span class="t">By noon</span><span class="e">Breakfast on the deck, pack up, check out</span></li>
+      <li><span class="t">Flexible</span><span class="e">Drive west shore: Incline → Tahoe City → Hwy 89 south → Emerald Bay viewpoint</span></li>
+      <li><span class="t">Flexible</span><span class="e">Lunch in Tahoe City (optional — skip if we're running late and eat on the road or at dinner)</span></li>
+      <li><span class="t">By 3:30</span><span class="e">On the road: 89 south → US-50 west → home</span></li>
+      <li><span class="t">~7:30</span><span class="e">Dinner in Fremont / East Bay</span></li>
+      <li><span class="t">~9:00</span><span class="e">Home</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="ornament">❦</div>
+
+<section id="todo">
+  <h2>To-do</h2>
+  <p class="todo-intro">Edit this file and flip <code>checked</code> on the input when done. Git is the source of truth.</p>
+
+  <div class="todo-group">
+    <h3>Bookings &amp; Reservations</h3>
+    <ul class="todo-list">
+      <li><input type="checkbox"><span class="task">Airbnb — North Shore (Incline / Kings Beach / Tahoe Vista)<span class="meta">Sat + Sun nights · needs full kitchen + firepit a plus · sleeps our crew</span></span></li>
+      <li><input type="checkbox"><span class="task">Winery 1 reservation (Sat ~11am)</span></li>
+      <li><input type="checkbox"><span class="task">Winery 2 reservation (Sat ~2:30pm)</span></li>
+      <li><input type="checkbox"><span class="task">Napa dinner reservation (Sat ~5:30pm)<span class="meta">early slot — we need to be on the road by 7pm</span></span></li>
+      <li><input type="checkbox"><span class="task">Sunday lunch reservation (North Shore, ~2pm)</span></li>
+      <li><input type="checkbox"><span class="task">Kayak rental at Sand Harbor (Sun 3:30pm)</span></li>
+      <li><input type="checkbox"><span class="task">Tahoe City lunch reservation (Mon ~1pm)</span></li>
+      <li><input type="checkbox"><span class="task">Fremont / East Bay dinner reservation (Mon ~7:30pm)</span></li>
+    </ul>
+  </div>
+
+  <div class="todo-group">
+    <h3>Pack</h3>
+    <ul class="todo-list">
+      <li><input type="checkbox"><span class="task">Hiking shoes + daypack</span></li>
+      <li><input type="checkbox"><span class="task">Warm layers (Tahoe evenings are cold in May)</span></li>
+      <li><input type="checkbox"><span class="task">Sunscreen + hat + sunglasses</span></li>
+      <li><input type="checkbox"><span class="task">Cookware (anything the Airbnb likely lacks)</span></li>
+      <li><input type="checkbox"><span class="task">Spices + cooking oil for Sun dinner</span></li>
+      <li><input type="checkbox"><span class="task">Cards / games / Bluetooth speaker</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>TAPA · a private planner</footer>
+
+</div>
+</body>
+</html>
