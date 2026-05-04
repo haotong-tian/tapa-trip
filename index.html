@@ -420,6 +420,51 @@
     opacity: 0.7;
     letter-spacing: 0.05em;
   }
+  .res-poc {
+    flex: 0 0 auto;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--barrel);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .res-poc::before {
+    content: "POC · ";
+    font-variant-caps: all-small-caps;
+    text-transform: lowercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    opacity: 0.8;
+  }
+
+  /* ── Addresses ──────────────────────────────────── */
+  .addr-list { list-style: none; padding: 0; margin: 0; }
+  .addr-list li {
+    padding: 0.85rem 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .addr-list li:last-child { border-bottom: none; }
+  .addr-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--wine);
+  }
+  .addr-line {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink);
+    margin-top: 0.15rem;
+  }
+  .addr-note {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.15rem;
+  }
 
   /* ── Mobile ─────────────────────────────────────── */
   @media (max-width: 560px) {
@@ -448,10 +493,10 @@
   <table class="glance">
     <thead><tr><th></th><th>Sat 5/23</th><th>Sun 5/24</th><th>Mon 5/25</th></tr></thead>
     <tbody>
-      <tr><td>AM</td><td>Drive → Napa</td><td>Breakfast → Secret Cove hike</td><td>Slow breakfast at Airbnb</td></tr>
-      <tr><td>Mid</td><td>Winery 1</td><td>Restaurant lunch (North Shore)</td><td>Check out, lunch in Tahoe City</td></tr>
-      <tr><td>PM</td><td>Winery 2</td><td>Kayak + groceries</td><td>Scenic drive to Emerald Bay</td></tr>
-      <tr><td>Eve</td><td>Dinner Napa → drive Tahoe</td><td>Cook at Airbnb + firepit</td><td>US-50 W → dinner Fremont/East Bay</td></tr>
+      <tr><td>AM</td><td>Drive → Napa</td><td>Breakfast → Secret Cove hike</td><td>Breakfast → drive S. Lake Tahoe</td></tr>
+      <tr><td>Mid</td><td>Winery 1</td><td>Restaurant lunch (North Shore)</td><td>Yacht tour — Emerald Bay</td></tr>
+      <tr><td>PM</td><td>Winery 2 — Kenzo</td><td>Kayak at Sand Harbor</td><td>Lunch + on the road</td></tr>
+      <tr><td>Eve</td><td>Dinner + groceries Sacramento → Tahoe</td><td>Cook at Airbnb + firepit</td><td>US-50 W → dinner Fremont/East Bay</td></tr>
     </tbody>
   </table>
 </section>
@@ -466,11 +511,12 @@
     <div class="date">Day I · Saturday, May 23</div>
     <ul class="schedule">
       <li><span class="t">Morning</span><span class="e">Drive Bay Area → Napa (~1.5 hr)</span></li>
-      <li><span class="t">~11:00</span><span class="e">Winery 1</span></li>
-      <li><span class="t">~1:30</span><span class="e">Light lunch / break between wineries</span></li>
-      <li><span class="t">~2:30</span><span class="e">Winery 2</span></li>
-      <li><span class="t">~5:30</span><span class="e">Early dinner in Napa</span></li>
-      <li><span class="t">~7:00</span><span class="e">Drive Napa → North Lake Tahoe (~3.5–4 hr via I-80)</span></li>
+      <li><span class="t">12:00</span><span class="e">Winery 1 — Opus One</span></li>
+      <li><span class="t">1:30</span><span class="e">Lunch — The Charter Oak (St. Helena)</span></li>
+      <li><span class="t">~3:30</span><span class="e">Winery 2 — Kenzo Estate</span></li>
+      <li><span class="t">~5:30</span><span class="e">Drive Napa → Sacramento (~1 hr)</span></li>
+      <li><span class="t">~6:30</span><span class="e">Dinner + grocery run in Sacramento</span></li>
+      <li><span class="t">~8:30</span><span class="e">Drive Sacramento → North Lake Tahoe (~2 hr via I-80)</span></li>
       <li><span class="t">~10:30</span><span class="e">Check in at Airbnb, settle, crash</span></li>
     </ul>
   </div>
@@ -484,21 +530,21 @@
       <li><span class="t">11:30–2:00</span><span class="e">Hike to Secret Cove + beach time</span></li>
       <li><span class="t">2:00</span><span class="e">Sit-down lunch at a North Shore restaurant</span></li>
       <li><span class="t">3:30–5:30</span><span class="e">Kayak at Sand Harbor</span></li>
-      <li><span class="t">5:30</span><span class="e">Grocery run (Raley's in Incline or Safeway in Kings Beach)</span></li>
       <li><span class="t">7:00</span><span class="e">Cook dinner at Airbnb + firepit / cards / sunset deck</span></li>
     </ul>
   </div>
 
   <div class="day">
-    <h3>Scenic drive home</h3>
+    <h3>Yacht tour &amp; drive home</h3>
     <div class="date">Day III · Monday, May 25</div>
     <ul class="schedule">
-      <li><span class="t">By noon</span><span class="e">Breakfast on the deck, pack up, check out</span></li>
-      <li><span class="t">Flexible</span><span class="e">Drive west shore: Incline → Tahoe City → Hwy 89 south → Emerald Bay viewpoint</span></li>
-      <li><span class="t">Flexible</span><span class="e">Lunch in Tahoe City (optional — skip if we're running late and eat on the road or at dinner)</span></li>
-      <li><span class="t">By 3:30</span><span class="e">On the road: 89 south → US-50 west → home</span></li>
-      <li><span class="t">~7:30</span><span class="e">Dinner in Fremont / East Bay</span></li>
-      <li><span class="t">~9:00</span><span class="e">Home</span></li>
+      <li><span class="t">~8:30</span><span class="e">Breakfast on the deck, pack up, check out</span></li>
+      <li><span class="t">~9:45</span><span class="e">Drive Incline → South Lake Tahoe (~1 hr)</span></li>
+      <li><span class="t">11:00–2:00</span><span class="e">Yacht tour — Emerald Bay</span></li>
+      <li><span class="t">~2:30</span><span class="e">Lunch in South Lake Tahoe (optional — skip if yacht serves food)</span></li>
+      <li><span class="t">By 3:30</span><span class="e">On the road: US-50 west → home</span></li>
+      <li><span class="t">~7:00</span><span class="e">Dinner in Fremont / East Bay</span></li>
+      <li><span class="t">~8:30</span><span class="e">Home</span></li>
     </ul>
   </div>
 </section>
@@ -513,18 +559,21 @@
     <h3>Lodging</h3>
     <ul class="res-list">
       <li>
-        <span class="res-name">Airbnb — North Shore shortlist</span>
-        <a class="res-link" href="https://www.airbnb.com/wishlists/invite/44597bf5-fb79-4982-9936-c3cbdb010f05?s=67&amp;unique_share_id=8495d058-c3de-4003-9470-93463c93c5e2" target="_blank" rel="noopener">airbnb.com wishlist&nbsp;→</a>
+        <span class="res-name">Airbnb — Incline Village <span class="res-tbd">(precise location TBD)</span></span>
+        <span class="res-link" style="text-decoration: none; color: var(--olive);">booked ✓</span>
+        <span class="res-poc">A.X.</span>
       </li>
     </ul>
   </div>
 
   <div class="res-group">
-    <h3>Saturday — Napa</h3>
+    <h3>Saturday — Napa &amp; Sacramento</h3>
     <ul class="res-list">
-      <li><span class="res-name">Winery 1 (~11am)</span><span class="res-tbd">TBD</span></li>
-      <li><span class="res-name">Winery 2 (~2:30pm)</span><span class="res-tbd">TBD</span></li>
-      <li><span class="res-name">Dinner in Napa (~5:30pm)</span><span class="res-tbd">TBD</span></li>
+      <li><span class="res-name">Winery 1 — Opus One (12:00pm)</span><span class="res-link" style="text-decoration: none; color: var(--olive);">booked ✓</span><span class="res-poc">C.W.</span></li>
+      <li><span class="res-name">Lunch — The Charter Oak, St. Helena (1:30pm)</span><span class="res-link" style="text-decoration: none; color: var(--olive);">booked ✓</span><span class="res-poc">C.W.</span></li>
+      <li><span class="res-name">Winery 2 — Kenzo Estate (3:30pm)</span><span class="res-link" style="text-decoration: none; color: var(--olive);">booked ✓</span><span class="res-poc">Z.W.</span></li>
+      <li><span class="res-name">Dinner in Sacramento (~6:30pm)</span><span class="res-tbd">TBD</span><span class="res-poc">TBD</span></li>
+      <li><span class="res-name">Grocery run in Sacramento (~8pm)</span><span class="res-tbd">TBD</span><span class="res-poc">TBD</span></li>
     </ul>
   </div>
 
@@ -534,18 +583,48 @@
       <li>
         <span class="res-name">Kayak at Sand Harbor (~3:30pm)</span>
         <a class="res-link" href="https://clearlytahoerentals.com/" target="_blank" rel="noopener">clearlytahoerentals.com&nbsp;→</a>
+        <span class="res-poc">TBD</span>
       </li>
-      <li><span class="res-name">Lunch — North Shore (~2pm)</span><span class="res-tbd">TBD</span></li>
+      <li><span class="res-name">Lunch — North Shore (~2pm)</span><span class="res-tbd">TBD</span><span class="res-poc">TBD</span></li>
     </ul>
   </div>
 
   <div class="res-group">
-    <h3>Monday — drive home</h3>
+    <h3>Monday — yacht &amp; drive home</h3>
     <ul class="res-list">
-      <li><span class="res-name">Tahoe City lunch (~1pm, optional)</span><span class="res-tbd">TBD</span></li>
-      <li><span class="res-name">Fremont / East Bay dinner (~7:30pm)</span><span class="res-tbd">TBD</span></li>
+      <li><span class="res-name">Yacht tour — Emerald Bay (11am–2pm)</span><span class="res-link" style="text-decoration: none; color: var(--olive);">booked ✓</span><span class="res-poc">A.X.</span></li>
+      <li><span class="res-name">South Lake Tahoe lunch (~2:30pm, optional)</span><span class="res-tbd">TBD</span><span class="res-poc">TBD</span></li>
+      <li><span class="res-name">Fremont / East Bay dinner (~7pm)</span><span class="res-tbd">TBD</span><span class="res-poc">TBD</span></li>
     </ul>
   </div>
+</section>
+
+<div class="ornament">❦</div>
+
+<section id="addresses">
+  <h2>Addresses</h2>
+  <p class="res-intro">Drop-pin destinations — copy into Maps before leaving.</p>
+  <ul class="addr-list">
+    <li>
+      <div class="addr-name">Opus One Winery</div>
+      <div class="addr-line">1144 Oakville Cross Rd, Oakville, CA 94562</div>
+      <div class="addr-note">By appointment only — entrance off Oakville Cross Rd</div>
+    </li>
+    <li>
+      <div class="addr-name">The Charter Oak</div>
+      <div class="addr-line">1050 Charter Oak Ave, St. Helena, CA 94574</div>
+    </li>
+    <li>
+      <div class="addr-name">Kenzo Estate</div>
+      <div class="addr-line">3200 Monticello Road, Napa, CA 94558</div>
+      <div class="addr-note">Enter via Monticello Rd only</div>
+    </li>
+    <li>
+      <div class="addr-name">Yacht tour — Emerald Bay (departure)</div>
+      <div class="addr-line">2435 Venice Drive East, South Lake Tahoe, CA 96150</div>
+      <div class="addr-note">Arrive by 10:45am — tour 11am – 2pm</div>
+    </li>
+  </ul>
 </section>
 
 <div class="ornament">❦</div>
